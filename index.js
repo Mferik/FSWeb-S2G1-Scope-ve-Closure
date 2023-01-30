@@ -167,15 +167,16 @@ function skorTabelasi(periyotSkoru,takimSkoru,ceyrekSayisi) {
   let skorlar=[];
   let evSahibiSkoru=0;
   let konukTakimSkoru=0;
-  let uzatma=0;
+  let uzatma=1;
   for (let i=0; i<ceyrekSayisi; i++){
     let periyotSonucu=periyotSkoru(takimSkoru);
     evSahibiSkoru += periyotSonucu.EvSahibi;
     konukTakimSkoru += periyotSonucu.KonukTakim;
     skorlar.push(`${i+1}. Periyot: Ev Sahibi ${periyotSonucu.EvSahibi} - Konuk Takım ${periyotSonucu.KonukTakim}`);
   }
-  while (evSahibiSkoru===konukTakimSkoru){
-    uzatma++;
+
+    while (evSahibiSkoru===konukTakimSkoru){
+
     let uzatmaSonucu=periyotSkoru(takimSkoru);
     evSahibiSkoru += uzatmaSonucu.EvSahibi;
     konukTakimSkoru+=uzatmaSonucu.KonukTakim;
