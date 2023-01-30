@@ -69,8 +69,8 @@ Not: Bu fonskiyon, aşağıdaki diğer görevler için de bir callback fonksiyon
 */
 
 function takimSkoru(){
-    
-  return Math.floor(Math.random() * (25-10+1)+10);
+    let randomSkor= Math.floor(Math.random() * (25-10+1)+10);
+  return randomSkor;
 }
 console.log(takimSkoru());
 
@@ -91,15 +91,15 @@ Aşağıdaki macSonucu() fonksiyonununda aşağıdakileri yapınız:
 }
 */ 
 
-function macSonucu(takimSkoru,ceyrekSayisi){
+function macSonucu(callBack,ceyrekSayisi){
   let evSahibiSkoru=0;
-  let konukTakimSkoru =0;
-
-  for (let i=0; i<ceyrekSayisi; i++){
-    evSahibiSkoru += takimSkoru();
-    konukTakimSkoru += takimSkoru();
+  let konukTakimSkoru=0;
+  for (let i=1; i<=ceyrekSayisi; i++){
+    evSahibiSkoru=evSahibiSkoru+callBack();
+    konukTakimSkoru+=callBack();
   }
-  return {"EvSahibi":evSahibiSkoru, "KonukTakim":konukTakimSkoru}
+  return {"EvSahibi": evSahibiSkoru,
+  "KonukTakim": konukTakimSkoru}
 }
 console.log(macSonucu(takimSkoru,4))
 
@@ -121,9 +121,9 @@ Aşağıdaki periyotSkoru() fonksiyonununda aşağıdakileri yapınız:
   */
 
 
-function periyotSkoru(takimSkoru) {
-  let evSahibiSkoru= takimSkoru("Ev Sahibi");
-  let konukTakimSkoru= takimSkoru("Konuk Takim");
+function periyotSkoru(callBack_takimSkoru) {
+  let evSahibiSkoru= callBack_takimSkoru("Ev Sahibi");
+  let konukTakimSkoru= callBack_takimSkoru("Konuk Takim");
   
   
   return {
